@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="1.4.css" rel="stylesheet" type="text/css">
+  <title>Ejercicio 1.8 DOM</title>
+</head>
+<body>
+    <h1>De una loquita</h1>
+    
+    <div>
+      <p>algun texto</p>
+      <p>hola</p>
+      <p>wasabi</p>
+    </div>
+
+    <div id="source">texto1</div>
+
+    <div id="destination">texto2</div>
+
+    <a href="https://google.com">Link</a>
+    <img src="logo.png">
+    
+    <script>
+        //Manipulando CSS
+        var div = document.querySelector("div") //ubica las etiquetas
+        
+        div.classList.add("square") //agrega
+        
+        function test(){
+          return div.classList.toggle("square")
+        }
+        setInterval(test,1) // parametros -> funcion y tiempo
+
+        //Shuffle!
+        var divSource = document.getElementById("source").textContent
+        var divDestination = document.getElementById("destination").textContent
+
+        document.getElementById("destination").textContent = divSource
+        document.getElementById("source").textContent = divDestination
+
+    </script>
+    
+</body>
+</html>
