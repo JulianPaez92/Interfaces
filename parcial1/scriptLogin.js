@@ -2,12 +2,14 @@ checkPassword = function() {
     
     var num = document.getElementById('numero').value;
     var str = document.getElementById('contra').value;
-    if (num.length < 7){
-        alert("El DNI debe contener entre 7 y 8 números");
-        return volverALogin();
+    validacionNum = /^[0-9]+$/.test(num)
+
+    if (!validacionNum){
+        alert("El DNI debe ser numérico");
+        return volverALogin;
     }
-    else if (Number.isInteger(num)){
-        alert("El DNI debe ser un número ");
+    else if (num.length < 7){
+        alert("El DNI debe contener entre 7 y 8 números");
         return volverALogin();
     }
     console.log("DNI Ok");
@@ -19,14 +21,15 @@ checkPassword = function() {
     }
     console.log("Contraseña Ok");
     return redireccion()
-
+    
+    //return("ok");
 }
 
 redireccion = function() {
     this.location = "paginaPrincipal.html";
 }
 volverALogin = function(){
-    this.location = "login.html"
+    this.location = "index.html"
 }
 
 document.getElementById("botonaco").addEventListener("click", (ev)=>{
